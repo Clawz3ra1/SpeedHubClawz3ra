@@ -1,18 +1,35 @@
--- Script para criar a UI e ajustar a velocidade do jogador
+-- Script para criar a UI de carregamento e depois a UI de ajuste de velocidade
 
 -- Referências para o jogador e a tela
 local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
--- Criar a UI
+-- Criar a UI de carregamento
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = playerGui
 
+-- Frame de carregamento
+local loadingFrame = Instance.new("Frame")
+loadingFrame.Size = UDim2.new(0, 300, 0, 150)
+loadingFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
+loadingFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+loadingFrame.Parent = screenGui
+
+local loadingLabel = Instance.new("TextLabel")
+loadingLabel.Size = UDim2.new(1, 0, 1, 0)
+loadingLabel.Text = "Carregando..."
+loadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+loadingLabel.TextSize = 24
+loadingLabel.BackgroundTransparency = 1
+loadingLabel.Parent = loadingFrame
+
+-- Criar a UI de ajuste de velocidade
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 300, 0, 150)
 frame.Position = UDim2.new(0.5, -150, 0.5, -75)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 frame.Parent = screenGui
+frame.Visible = false  -- Inicialmente invisível
 
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 0, 30)
@@ -80,3 +97,12 @@ frame.InputChanged:Connect(function(input)
         frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
     end
 end)
+
+-- Esperar 3 segundos e então ocultar a UI de carregamento e mostrar a UI de ajuste de velocidade
+wait(3)
+
+-- Esconder a UI de carregamento
+loadingFrame.Visible = false
+
+-- Mostrar a UI de ajuste de velocidade
+frame.Visible = true

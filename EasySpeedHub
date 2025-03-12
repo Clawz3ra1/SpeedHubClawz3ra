@@ -8,11 +8,12 @@ local playerGui = player:WaitForChild("PlayerGui")
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = playerGui
 
--- Frame de carregamento
+-- Frame de carregamento com opacidade 0.4
 local loadingFrame = Instance.new("Frame")
 loadingFrame.Size = UDim2.new(0, 300, 0, 150)
 loadingFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
 loadingFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+loadingFrame.BackgroundTransparency = 0.6  -- Definindo opacidade para 0.4 (100% - 0.6 = 40%)
 loadingFrame.Parent = screenGui
 
 local loadingLabel = Instance.new("TextLabel")
@@ -109,6 +110,17 @@ setButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 setButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 setButton.Parent = frame
 
+-- Criar o botão de "X" para fechar a UI de ajuste de velocidade
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(0, 0, 0, 0)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.TextSize = 20
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.BackgroundTransparency = 0.3
+closeButton.Parent = frame
+
 -- Função para mudar a velocidade do jogador
 local function setSpeed(speed)
     if tonumber(speed) then
@@ -124,6 +136,11 @@ end
 -- Função para quando o jogador clicar no botão
 setButton.MouseButton1Click:Connect(function()
     setSpeed(speedInput.Text)
+end)
+
+-- Função para quando o jogador clicar no "X" para fechar a UI
+closeButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()  -- Destruir a UI ao clicar no "X"
 end)
 
 -- Tornar a UI móvel

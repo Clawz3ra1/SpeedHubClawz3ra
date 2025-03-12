@@ -11,14 +11,14 @@ screenGui.Parent = playerGui
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 300, 0, 150)
 frame.Position = UDim2.new(0.5, -150, 0.5, -75)
-frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 frame.Parent = screenGui
 
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 0, 30)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.Text = "Ajuste de Velocidade"
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextColor3 = Color3.fromRGB(255, 0, 0)
 title.TextSize = 20
 title.BackgroundTransparency = 1
 title.Parent = frame
@@ -28,7 +28,7 @@ speedInput.Size = UDim2.new(0.8, 0, 0, 40)
 speedInput.Position = UDim2.new(0.1, 0, 0.3, 0)
 speedInput.PlaceholderText = "Digite a velocidade (ex: 100)"
 speedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-speedInput.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+speedInput.BackgroundColor3 = Color3.fromRGB(0, 122, 255)
 speedInput.Parent = frame
 
 local setButton = Instance.new("TextButton")
@@ -36,7 +36,7 @@ setButton.Size = UDim2.new(0.8, 0, 0, 40)
 setButton.Position = UDim2.new(0.1, 0, 0.6, 0)
 setButton.Text = "Definir Velocidade"
 setButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-setButton.BackgroundColor3 = Color3.fromRGB(0, 122, 255)
+setButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 setButton.Parent = frame
 
 -- Função para mudar a velocidade do jogador

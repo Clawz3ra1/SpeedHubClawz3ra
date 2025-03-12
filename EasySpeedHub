@@ -30,6 +30,7 @@ dotFrame.Position = UDim2.new(0.5, -50, 0.7, 0)
 dotFrame.BackgroundTransparency = 1
 dotFrame.Parent = loadingFrame
 
+-- Centralizando as bolinhas
 local dot1 = Instance.new("TextLabel")
 dot1.Size = UDim2.new(0, 20, 0, 20)
 dot1.Position = UDim2.new(0, 0, 0, 0)
@@ -41,7 +42,7 @@ dot1.Parent = dotFrame
 
 local dot2 = Instance.new("TextLabel")
 dot2.Size = UDim2.new(0, 20, 0, 20)
-dot2.Position = UDim2.new(0.25, 0, 0, 0)
+dot2.Position = UDim2.new(0.5, -10, 0, 0)  -- Ajustei para centralizar mais
 dot2.Text = "."
 dot2.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Cor branca
 dot2.TextSize = 30
@@ -50,7 +51,7 @@ dot2.Parent = dotFrame
 
 local dot3 = Instance.new("TextLabel")
 dot3.Size = UDim2.new(0, 20, 0, 20)
-dot3.Position = UDim2.new(0.5, 0, 0, 0)
+dot3.Position = UDim2.new(1, -20, 0, 0)  -- Ajustei para centralizar mais
 dot3.Text = "."
 dot3.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Cor branca
 dot3.TextSize = 30

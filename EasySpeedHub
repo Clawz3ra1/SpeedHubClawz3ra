@@ -1,4 +1,4 @@
--- Script para criar a UI de carregamento e depois a UI de ajuste de velocidade
+-- Script para criar a UI de carregamento com bolinhas girando e depois a UI de ajuste de velocidade
 
 -- Referências para o jogador e a tela
 local player = game.Players.LocalPlayer
@@ -16,12 +16,64 @@ loadingFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 loadingFrame.Parent = screenGui
 
 local loadingLabel = Instance.new("TextLabel")
-loadingLabel.Size = UDim2.new(1, 0, 1, 0)
+loadingLabel.Size = UDim2.new(1, 0, 0.3, 0)
 loadingLabel.Text = "Carregando..."
 loadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 loadingLabel.TextSize = 24
 loadingLabel.BackgroundTransparency = 1
 loadingLabel.Parent = loadingFrame
+
+-- Criar a animação de bolinhas girando
+local dotFrame = Instance.new("Frame")
+dotFrame.Size = UDim2.new(0, 100, 0, 20)
+dotFrame.Position = UDim2.new(0.5, -50, 0.7, 0)
+dotFrame.BackgroundTransparency = 1
+dotFrame.Parent = loadingFrame
+
+local dot1 = Instance.new("TextLabel")
+dot1.Size = UDim2.new(0, 20, 0, 20)
+dot1.Position = UDim2.new(0, 0, 0, 0)
+dot1.Text = "."
+dot1.TextColor3 = Color3.fromRGB(255, 255, 255)
+dot1.TextSize = 30
+dot1.BackgroundTransparency = 1
+dot1.Parent = dotFrame
+
+local dot2 = Instance.new("TextLabel")
+dot2.Size = UDim2.new(0, 20, 0, 20)
+dot2.Position = UDim2.new(0.25, 0, 0, 0)
+dot2.Text = "."
+dot2.TextColor3 = Color3.fromRGB(255, 255, 255)
+dot2.TextSize = 30
+dot2.BackgroundTransparency = 1
+dot2.Parent = dotFrame
+
+local dot3 = Instance.new("TextLabel")
+dot3.Size = UDim2.new(0, 20, 0, 20)
+dot3.Position = UDim2.new(0.5, 0, 0, 0)
+dot3.Text = "."
+dot3.TextColor3 = Color3.fromRGB(255, 255, 255)
+dot3.TextSize = 30
+dot3.BackgroundTransparency = 1
+dot3.Parent = dotFrame
+
+-- Animação de rotação das bolinhas
+local function animateDots()
+    local tweenService = game:GetService("TweenService")
+
+    local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1, true)
+    local goal = {Rotation = 360}
+
+    local tween1 = tweenService:Create(dot1, tweenInfo, goal)
+    local tween2 = tweenService:Create(dot2, tweenInfo, goal)
+    local tween3 = tweenService:Create(dot3, tweenInfo, goal)
+
+    tween1:Play()
+    tween2:Play()
+    tween3:Play()
+end
+
+animateDots()  -- Iniciar a animação
 
 -- Criar a UI de ajuste de velocidade
 local frame = Instance.new("Frame")

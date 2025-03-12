@@ -83,6 +83,7 @@ createdByFrame.Size = UDim2.new(0, 300, 0, 50)
 createdByFrame.Position = UDim2.new(0.5, -150, 0.5, -25)
 createdByFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 createdByFrame.BackgroundTransparency = 0.6  -- Opacidade 0.4
+createdByFrame.Visible = false  -- Inicialmente invisível
 createdByFrame.Parent = screenGui
 
 local createdByLabel = Instance.new("TextLabel")
@@ -195,7 +196,7 @@ frame.InputChanged:Connect(function(input)
     end
 end)
 
--- Esperar 2 segundos e então esconder a UI de carregamento, mostrar a UI "Criado por Clawz3ra", e depois de 2 segundos mostrar a UI de ajuste de velocidade
+-- Esperar 3 segundos (tempo de carregamento) antes de mostrar a UI de "Criado por Clawz3ra"
 wait(3)
 
 -- Esconder a UI de carregamento

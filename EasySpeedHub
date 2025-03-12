@@ -199,5 +199,5 @@ minimizeButton.MouseButton1Click:Connect(function()
         frame.Visible = false
         minimizeButton.Text = "+"
     end
-    isMinimized = not isMinimized  -- Alterna o estado
+    isMinimized = not isMinimized  -- Alterna o estado de minimização
 end)

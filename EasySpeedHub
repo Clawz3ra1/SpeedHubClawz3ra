@@ -1,19 +1,14 @@
--- Script para criar a UI de carregamento com bolinhas girando, UI de ajuste de velocidade, e a UI "Criado por Clawz3ra"
-
--- Referências para o jogador e a tela
 local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
--- Criar a UI de carregamento
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = playerGui
 
--- Frame de carregamento com opacidade 0.4
 local loadingFrame = Instance.new("Frame")
 loadingFrame.Size = UDim2.new(0, 300, 0, 150)
 loadingFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
 loadingFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-loadingFrame.BackgroundTransparency = 0.6  -- Definindo opacidade para 0.4 (100% - 0.6 = 40%)
+loadingFrame.BackgroundTransparency = 0.6
 loadingFrame.Parent = screenGui
 
 local loadingLabel = Instance.new("TextLabel")
@@ -24,42 +19,39 @@ loadingLabel.TextSize = 24
 loadingLabel.BackgroundTransparency = 1
 loadingLabel.Parent = loadingFrame
 
--- Criar a animação de bolinhas girando
 local dotFrame = Instance.new("Frame")
 dotFrame.Size = UDim2.new(0, 100, 0, 20)
 dotFrame.Position = UDim2.new(0.5, -50, 0.7, 0)
 dotFrame.BackgroundTransparency = 1
 dotFrame.Parent = loadingFrame
 
--- Centralizando as bolinhas
 local dot1 = Instance.new("TextLabel")
 dot1.Size = UDim2.new(0, 20, 0, 20)
 dot1.Position = UDim2.new(0, 0, 0, 0)
 dot1.Text = "."
-dot1.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Cor branca
+dot1.TextColor3 = Color3.fromRGB(255, 255, 255)
 dot1.TextSize = 30
 dot1.BackgroundTransparency = 1
 dot1.Parent = dotFrame
 
 local dot2 = Instance.new("TextLabel")
 dot2.Size = UDim2.new(0, 20, 0, 20)
-dot2.Position = UDim2.new(0.5, -10, 0, 0)  -- Ajustei para centralizar mais
+dot2.Position = UDim2.new(0.5, -10, 0, 0)
 dot2.Text = "."
-dot2.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Cor branca
+dot2.TextColor3 = Color3.fromRGB(255, 255, 255)
 dot2.TextSize = 30
 dot2.BackgroundTransparency = 1
 dot2.Parent = dotFrame
 
 local dot3 = Instance.new("TextLabel")
 dot3.Size = UDim2.new(0, 20, 0, 20)
-dot3.Position = UDim2.new(1, -20, 0, 0)  -- Ajustei para centralizar mais
+dot3.Position = UDim2.new(1, -20, 0, 0)
 dot3.Text = "."
-dot3.TextColor3 = Color3.fromRGB(255, 255, 255)  -- Cor branca
+dot3.TextColor3 = Color3.fromRGB(255, 255, 255)
 dot3.TextSize = 30
 dot3.BackgroundTransparency = 1
 dot3.Parent = dotFrame
 
--- Animação de rotação das bolinhas
 local function animateDots()
     local tweenService = game:GetService("TweenService")
 
@@ -75,15 +67,14 @@ local function animateDots()
     tween3:Play()
 end
 
-animateDots()  -- Iniciar a animação
+animateDots()
 
--- Criar a UI "Criado Por Clawz3ra"
 local createdByFrame = Instance.new("Frame")
 createdByFrame.Size = UDim2.new(0, 300, 0, 50)
 createdByFrame.Position = UDim2.new(0.5, -150, 0.5, -25)
 createdByFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-createdByFrame.BackgroundTransparency = 0.6  -- Opacidade 0.4
-createdByFrame.Visible = false  -- Inicialmente invisível
+createdByFrame.BackgroundTransparency = 0.6
+createdByFrame.Visible = false
 createdByFrame.Parent = screenGui
 
 local createdByLabel = Instance.new("TextLabel")
@@ -94,20 +85,19 @@ createdByLabel.TextSize = 20
 createdByLabel.BackgroundTransparency = 1
 createdByLabel.Parent = createdByFrame
 
--- Criar a UI de ajuste de velocidade
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 300, 0, 150)
 frame.Position = UDim2.new(0.5, -150, 0.5, -75)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 frame.Parent = screenGui
-frame.Visible = false  -- Inicialmente invisível
+frame.Visible = false
 
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 0, 30)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.Text = "Ajuste de Velocidade"
 title.TextColor3 = Color3.fromRGB(255, 0, 0)
-title.TextSize = 16  -- Diminuir o tamanho da letra
+title.TextSize = 16
 title.BackgroundTransparency = 1
 title.Parent = frame
 
@@ -116,7 +106,7 @@ speedInput.Size = UDim2.new(0.8, 0, 0, 40)
 speedInput.Position = UDim2.new(0.1, 0, 0.3, 0)
 speedInput.PlaceholderText = "Digite a velocidade (ex: 100)"
 speedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-speedInput.BackgroundColor3 = Color3.fromRGB(105, 105, 105)  -- Cinza mais escuro
+speedInput.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
 speedInput.Parent = frame
 
 local setButton = Instance.new("TextButton")
@@ -124,10 +114,9 @@ setButton.Size = UDim2.new(0.8, 0, 0, 40)
 setButton.Position = UDim2.new(0.1, 0, 0.6, 0)
 setButton.Text = "Definir Velocidade"
 setButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-setButton.BackgroundColor3 = Color3.fromRGB(0, 191, 255)  -- Azul claro
+setButton.BackgroundColor3 = Color3.fromRGB(0, 191, 255)
 setButton.Parent = frame
 
--- Criar o botão de "X" para fechar a UI de ajuste de velocidade
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0, 30, 0, 30)
 closeButton.Position = UDim2.new(0, 0, 0, 0)
@@ -138,10 +127,9 @@ closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 closeButton.BackgroundTransparency = 0.3
 closeButton.Parent = frame
 
--- Criar o botão de "-" para minimizar a UI
 local minimizeButton = Instance.new("TextButton")
 minimizeButton.Size = UDim2.new(0, 30, 0, 30)
-minimizeButton.Position = UDim2.new(1, -30, 0, 0)  -- Posição no canto superior direito
+minimizeButton.Position = UDim2.new(1, -30, 0, 0)
 minimizeButton.Text = "-"
 minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 minimizeButton.TextSize = 24
@@ -149,7 +137,6 @@ minimizeButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 minimizeButton.BackgroundTransparency = 0.3
 minimizeButton.Parent = frame
 
--- Função para mudar a velocidade do jogador
 local function setSpeed(speed)
     if tonumber(speed) then
         local speedValue = tonumber(speed)
@@ -161,20 +148,16 @@ local function setSpeed(speed)
     end
 end
 
--- Função para quando o jogador clicar no botão
 setButton.MouseButton1Click:Connect(function()
     setSpeed(speedInput.Text)
 end)
 
--- Função para quando o jogador clicar no "X" para fechar a UI
 closeButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()  -- Destruir a UI ao clicar no "X"
+    screenGui:Destroy()
 end)
 
--- Tornar a UI móvel
 local dragging, dragInput, dragStart, startPos
 
--- Função para começar o arraste
 frame.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
         dragging = true
@@ -188,7 +171,6 @@ frame.InputBegan:Connect(function(input)
     end
 end)
 
--- Função para arrastar a UI
 frame.InputChanged:Connect(function(input)
     if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
         local delta = input.Position - dragStart
@@ -196,25 +178,18 @@ frame.InputChanged:Connect(function(input)
     end
 end)
 
--- Esperar 3 segundos (tempo de carregamento) antes de mostrar a UI de "Criado por Clawz3ra"
 wait(3)
 
--- Esconder a UI de carregamento
 loadingFrame.Visible = false
 
--- Exibir a UI "Criado Por Clawz3ra"
 createdByFrame.Visible = true
 
--- Esperar mais 2 segundos e então exibir a UI de ajuste de velocidade
 wait(2)
 
--- Esconder a UI "Criado Por Clawz3ra"
 createdByFrame.Visible = false
 
--- Mostrar a UI de ajuste de velocidade
 frame.Visible = true
 
--- Função para minimizar a UI
 local isMinimized = false
 
 minimizeButton.MouseButton1Click:Connect(function()
@@ -225,5 +200,5 @@ minimizeButton.MouseButton1Click:Connect(function()
         frame.Visible = false
         minimizeButton.Text = "+"
     end
-    isMinimized = not isMinimized  -- Alterna o estado de minimização
+    isMinimized = not isMinimized
 end)

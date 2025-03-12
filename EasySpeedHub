@@ -90,7 +90,7 @@ title.Size = UDim2.new(1, 0, 0, 30)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.Text = "Ajuste de Velocidade"
 title.TextColor3 = Color3.fromRGB(255, 0, 0)
-title.TextSize = 20
+title.TextSize = 16  -- Diminuir o tamanho da letra
 title.BackgroundTransparency = 1
 title.Parent = frame
 
@@ -99,7 +99,7 @@ speedInput.Size = UDim2.new(0.8, 0, 0, 40)
 speedInput.Position = UDim2.new(0.1, 0, 0.3, 0)
 speedInput.PlaceholderText = "Digite a velocidade (ex: 100)"
 speedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-speedInput.BackgroundColor3 = Color3.fromRGB(0, 122, 255)
+speedInput.BackgroundColor3 = Color3.fromRGB(169, 169, 169)  -- Cor cinza
 speedInput.Parent = frame
 
 local setButton = Instance.new("TextButton")
@@ -107,7 +107,7 @@ setButton.Size = UDim2.new(0.8, 0, 0, 40)
 setButton.Position = UDim2.new(0.1, 0, 0.6, 0)
 setButton.Text = "Definir Velocidade"
 setButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-setButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+setButton.BackgroundColor3 = Color3.fromRGB(0, 0, 255)  -- Cor azul
 setButton.Parent = frame
 
 -- Criar o botão de "X" para fechar a UI de ajuste de velocidade

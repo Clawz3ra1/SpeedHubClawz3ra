@@ -1,4 +1,4 @@
--- Script para criar a UI de carregamento com bolinhas girando e depois a UI de ajuste de velocidade, com funcionalidade de minimizar
+-- Script para criar a UI de carregamento com bolinhas girando, UI de ajuste de velocidade, e a UI "Criado por Clawz3ra"
 
 -- Referências para o jogador e a tela
 local player = game.Players.LocalPlayer
@@ -77,6 +77,22 @@ end
 
 animateDots()  -- Iniciar a animação
 
+-- Criar a UI "Criado Por Clawz3ra"
+local createdByFrame = Instance.new("Frame")
+createdByFrame.Size = UDim2.new(0, 300, 0, 50)
+createdByFrame.Position = UDim2.new(0.5, -150, 0.5, -25)
+createdByFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+createdByFrame.BackgroundTransparency = 0.6  -- Opacidade 0.4
+createdByFrame.Parent = screenGui
+
+local createdByLabel = Instance.new("TextLabel")
+createdByLabel.Size = UDim2.new(1, 0, 1, 0)
+createdByLabel.Text = "Criado Por Clawz3ra"
+createdByLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+createdByLabel.TextSize = 20
+createdByLabel.BackgroundTransparency = 1
+createdByLabel.Parent = createdByFrame
+
 -- Criar a UI de ajuste de velocidade
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 300, 0, 150)
@@ -99,7 +115,7 @@ speedInput.Size = UDim2.new(0.8, 0, 0, 40)
 speedInput.Position = UDim2.new(0.1, 0, 0.3, 0)
 speedInput.PlaceholderText = "Digite a velocidade (ex: 100)"
 speedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
-speedInput.BackgroundColor3 = Color3.fromRGB(169, 169, 169)  -- Cor cinza
+speedInput.BackgroundColor3 = Color3.fromRGB(105, 105, 105)  -- Cinza mais escuro
 speedInput.Parent = frame
 
 local setButton = Instance.new("TextButton")
@@ -107,7 +123,7 @@ setButton.Size = UDim2.new(0.8, 0, 0, 40)
 setButton.Position = UDim2.new(0.1, 0, 0.6, 0)
 setButton.Text = "Definir Velocidade"
 setButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-setButton.BackgroundColor3 = Color3.fromRGB(0, 0, 255)  -- Cor azul
+setButton.BackgroundColor3 = Color3.fromRGB(0, 191, 255)  -- Azul claro
 setButton.Parent = frame
 
 -- Criar o botão de "X" para fechar a UI de ajuste de velocidade
@@ -179,11 +195,20 @@ frame.InputChanged:Connect(function(input)
     end
 end)
 
--- Esperar 3 segundos e então ocultar a UI de carregamento e mostrar a UI de ajuste de velocidade
+-- Esperar 2 segundos e então esconder a UI de carregamento, mostrar a UI "Criado por Clawz3ra", e depois de 2 segundos mostrar a UI de ajuste de velocidade
 wait(3)
 
 -- Esconder a UI de carregamento
 loadingFrame.Visible = false
+
+-- Exibir a UI "Criado Por Clawz3ra"
+createdByFrame.Visible = true
+
+-- Esperar mais 2 segundos e então exibir a UI de ajuste de velocidade
+wait(2)
+
+-- Esconder a UI "Criado Por Clawz3ra"
+createdByFrame.Visible = false
 
 -- Mostrar a UI de ajuste de velocidade
 frame.Visible = true
